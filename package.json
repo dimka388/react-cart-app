@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/dimka388/react-cart-app/issues"
   },
-  "homepage": "https://github.com/dimka388/react-cart-app#readme"
+  "homepage": "https://github.com/dimka388/react-cart-app#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.4.1"
+  }
 }
