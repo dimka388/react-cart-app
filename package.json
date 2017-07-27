@@ -1,0 +1,19 @@
+{
+  "name": "react-cart-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimka388/react-cart-app.git"
+  },
+  "author": "dimka388",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dimka388/react-cart-app/issues"
+  },
+  "homepage": "https://github.com/dimka388/react-cart-app#readme"
+}
