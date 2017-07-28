@@ -1,16 +1,25 @@
 'use strict';
 
 import React, { Component } from 'react';
-import Styles from './footer.scss';
+import { connect } from 'react-redux';
+import './footer.scss';
 
-class FooterComponent extends Component {
-	render() {
-		return (
-			<footer className={Styles.footer}>
-				<p>Adyax specializes in working with multi-national, multi-brand companies on a wide range of customer, client and employee-facing solutions.</p>
-			</footer>
-		)
-	}
+const FooterComponent = ({store}) => {
+	return (
+		<footer id='footer'>
+			<img src={store.footer.image.src}
+				height={store.footer.image.height}
+				width={store.footer.image.width} />
+			<div className="text">
+				<p>{store.footer.text}</p>
+			</div>
+		</footer>
+	)
 }
 
-export default FooterComponent;
+export default connect(
+	state => ({
+		store: state.appState
+	}),
+	dispatch => ({})
+)(FooterComponent);

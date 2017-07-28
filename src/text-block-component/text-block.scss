@@ -1,0 +1,24 @@
+@import '../scss/main';
+
+.block{
+	max-width:770px;
+	margin: 0 auto;
+	font:600 24px/1.79'Work Sans', sans-serif;
+	text-align: center;
+	color: #191919;
+
+	h1{
+		margin: 0 0 40px;
+		font-size: 60px;
+		line-height: 1;
+		letter-spacing: 0.8px;
+
+		span{
+			color: #fedd23;
+		}
+	}
+
+	p{
+		margin: 0;
+	}
+}

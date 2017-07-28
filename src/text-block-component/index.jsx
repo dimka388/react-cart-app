@@ -1,16 +1,21 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './text-block.scss';
 
-class TextBlockComponent extends Component {
-	render() {
-		return (
-			<div>
-				<h1>Frond-End Developer<span>.</span></h1>
-				<p>Adyax’s core values take top priority: we care for our client, and we care for our people. Staff and clients work in partnership with consistent,  transparent communication.</p>
-			</div>
-		)
-	}
+const TextBlockComponent = ({store}) => {
+	return (
+		<div className="block">
+			<h1>{store.textBlock.title}<span>.</span></h1>
+			<p>{store.textBlock.text}</p>
+		</div>
+	)
 }
 
-export default TextBlockComponent;
+export default connect(
+	state => ({
+		store: state.appState
+	}),
+	dispatch => ({})
+)(TextBlockComponent);

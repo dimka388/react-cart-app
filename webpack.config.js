@@ -26,6 +26,10 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
+          test: /\.(woff|woff2)+/,
+          loader: 'file-loader?name=../fonts/[name].[ext]'
+      },
+      {
           test: /\.(jpg|png|svg)$/,
           loaders: [
               'file-loader?name=[name].[ext]'

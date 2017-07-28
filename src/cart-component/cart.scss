@@ -1,0 +1,59 @@
+@import '../scss/main';
+
+.cart-section{
+	position: relative;
+	overflow: hidden;
+	padding: 0 0 50px 103px;
+	margin-bottom: 50px;
+	&:before{
+		content: '';
+		position: absolute;
+		top: 147px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #fedd23;
+	}
+	.holder{
+		padding: 0 65px 0 52px;
+		position: relative;
+		background-color: #fff;
+		box-shadow: 0 25px 54px 0 rgba(0, 0, 0, 0.11);
+	}
+	.list{
+		@extend %listreset;
+		li{
+			padding: 33px 19px 37px 27px;
+			margin: 0;
+			border-bottom: 1px solid #ececec;
+		}
+		.image{
+			width: 131px;
+			height: 131px;
+			border-radius: 10px;
+			background-color: #ffffff;
+			box-shadow: 0 11px 20px 0 rgba(0, 0, 0, 0.08);
+			position: relative;
+			overflow: hidden;
+			margin: 0 38px 0 0;
+		}
+		.text{
+			font: 16px/1.56 'Work Sans', sans-serif;
+			border-right:1px solid rgba(43, 46, 64, 0.06);
+			h2{
+				margin: 0;
+				text-align: left;
+				color: #191919;
+				font-size: 20px;
+				line-height: 2.6;
+				font-weight: 600;
+			}
+			p{
+				margin: 0;
+			}
+		}
+		.price{
+			font: 16px/1.56 'Work Sans', sans-serif;
+		}
+	}
+}

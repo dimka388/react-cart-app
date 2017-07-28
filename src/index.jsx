@@ -6,18 +6,19 @@ import ReactDOM from 'react-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-import reducer from './reducers';
-import Styles from './styles.scss';
 import HeaderComponent from './header-component/index';
 import TextBlockComponent from './text-block-component/index';
 import CartComponent from './cart-component/index';
 import FooterComponent from './footer-component/index';
 
+import reducer from './reducers';
+import './scss/common.scss';
+
 const store = createStore(reducer);
 
 const App = () => (
 	<Provider store={store}>
-		<div className={Styles.wrapper}>
+		<div id='wrapper'>
 			<HeaderComponent/>
 			<TextBlockComponent/>
 			<CartComponent/>
