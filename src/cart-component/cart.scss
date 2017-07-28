@@ -26,6 +26,8 @@
 			padding: 33px 19px 37px 27px;
 			margin: 0;
 			border-bottom: 1px solid #ececec;
+			display: flex;
+			align-items: center;
 		}
 		.image{
 			width: 131px;
@@ -35,9 +37,10 @@
 			box-shadow: 0 11px 20px 0 rgba(0, 0, 0, 0.08);
 			position: relative;
 			overflow: hidden;
-			margin: 0 38px 0 0;
 		}
 		.text{
+			padding-left: 38px;
+			width: calc(100% - 513px);
 			font: 16px/1.56 'Work Sans', sans-serif;
 			border-right:1px solid rgba(43, 46, 64, 0.06);
 			h2{
@@ -53,6 +56,7 @@
 			}
 		}
 		.price{
+			width: 382px;
 			font: 16px/1.56 'Work Sans', sans-serif;
 		}
 	}
