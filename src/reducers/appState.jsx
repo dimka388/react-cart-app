@@ -53,11 +53,10 @@ export default function appState(state = initialState, action) {
 	let newState = Object.assign({}, state);
 	const updateItemQty = (item, increase) => {
 		let index = newState.selectedItems.indexOf(item);
-		let qty = newState.selectedItems[index].qty;
 		if (increase) {
-			newState.selectedItems[index].qty = Math.min(10, qty + 1);
+			newState.selectedItems[index].qty++;
 		} else {
-			newState.selectedItems[index].qty = Math.max(1, qty - 1);
+			newState.selectedItems[index].qty--;
 		}
 		return newState;
 	};
@@ -66,8 +65,14 @@ export default function appState(state = initialState, action) {
 		newState.selectedItems.splice(index,1);
 		return newState;
 	};
-	const updateItemId = (item, id) => {
+	const updateItemId = (item, id, min, max) => {
 		let index = newState.selectedItems.indexOf(item);
+		if (+item.qty < +min) {
+			newState.selectedItems[index].qty = min;
+		}
+		if (+item.qty > +max) {
+			newState.selectedItems[index].qty = max;
+		}
 		newState.selectedItems[index].id = id;
 		return newState;
 	};
@@ -83,7 +88,7 @@ export default function appState(state = initialState, action) {
 			return updateItemQty(action.item, true);
 			break;
 		case 'ItemChangeId':
-			return updateItemId(action.item, action.id);
+			return updateItemId(action.item, action.id, action.min, action.max);
 			break;
 		case 'ItemDelete':
 			return deleteItem(action.item);

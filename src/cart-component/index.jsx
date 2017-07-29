@@ -65,7 +65,16 @@ class CartComponent extends Component {
 		}
 		const ItemPrice = ({item}) => {
 			return (
-				<strong className='item-price'>{item.qty * (ItemData(item) ? ItemData(item).price : 0)} €</strong>
+				<div className='price'>
+					<button className='btn'
+						disabled={ItemData(item) && item.qty == ItemData(item).minimum}
+						onClick={this.decreaseClickHandler.bind(this, item)}>-</button>
+					<span className='qty'>{item.qty}</span>
+					<button className='btn'
+						disabled={ItemData(item) && item.qty == ItemData(item).availability}
+						onClick={this.increaseClickHandler.bind(this, item)}>+</button>
+					<strong className='item-price'>{item.qty * (ItemData(item) ? ItemData(item).price : 0)} €</strong>
+				</div>
 			)
 		}
 		const CartItem = ({item}) => {
@@ -77,18 +86,13 @@ class CartComponent extends Component {
 						<ItemText item={item} />
 						<CustomSelect item={item} />
 					</div>
-					<div className='price'>
-						<button className='btn' onClick={this.decreaseClickHandler.bind(this, item)}>-</button>
-						<span className='qty'>{item.qty}</span>
-						<button className='btn' onClick={this.increaseClickHandler.bind(this, item)}>+</button>
-						<ItemPrice item={item} />
-						<button className='delete'
-							onClick={this.deleteClickHandler.bind(this, item)}>
-							<img src={this.props.store.iconDelete.src}
-								width={this.props.store.iconDelete.width}
-								height={this.props.store.iconDelete.height}/>
-						</button>
-					</div>
+					<ItemPrice item={item} />
+					<button className='delete'
+						onClick={this.deleteClickHandler.bind(this, item)}>
+						<img src={this.props.store.iconDelete.src}
+							width={this.props.store.iconDelete.width}
+							height={this.props.store.iconDelete.height}/>
+					</button>
 				</li>
 			)
 		}

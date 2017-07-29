@@ -38,11 +38,18 @@ class CustomSelect extends Component {
 		});
 	}
 
-	optionClickHandler(item, id) {
-		this.props.onChangeId(item, id);
+	optionClickHandler(item, id, min, max) {
+		this.props.onChangeId(item, id, min, max);
 	}
 
 	render() {
+		const isDisabledOption = (id) => {
+			return this.props.store.selectedItems.filter((obj) => {
+				if (id === obj.id) {
+					return true;
+				}
+			}).length;
+		};
 		return (
 			<div className={'custom-select' + (this.state.activeState ? ' active' : '')}
 				ref={(customSelect) => { this.customSelect = customSelect; }}>
@@ -51,8 +58,8 @@ class CustomSelect extends Component {
 				<ul className='drop'>
 					{this.props.store.storeItems.map((obj, index) =>
 						<li key={index}
-							onClick={this.optionClickHandler.bind(this, this.props.item, obj.id)}
-							className={obj.id === this.props.item.id ? 'active' : ''}>{obj.id}</li>
+							onClick={this.optionClickHandler.bind(this, this.props.item, obj.id, obj.minimum, obj.availability)}
+							className={isDisabledOption(obj.id) ? 'disabled' : ''}>{obj.id}</li>
 					)}
 				</ul>
 			</div>
@@ -65,8 +72,8 @@ export default connect(
 		store: state.appState
 	}),
 	dispatch => ({
-		onChangeId: (item, id) => {
-			dispatch({ type: 'ItemChangeId', item, id})
+		onChangeId: (item, id, min, max) => {
+			dispatch({ type: 'ItemChangeId', item, id, min, max})
 		}
 	})
 )(CustomSelect);

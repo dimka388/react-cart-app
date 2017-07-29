@@ -41,9 +41,11 @@
 		display: none;
 		li{
 			padding: 14px 20px;
-			&.active,
 			&:hover{
 				background-color: #dcdcdc;
+			}
+			&.disabled{
+				display: none;
 			}
 		}
 	}

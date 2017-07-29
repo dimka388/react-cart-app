@@ -3,7 +3,10 @@
 .cart-section{
 	position: relative;
 	overflow: hidden;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
+	@include media('<tablet'){
+		margin-bottom: 0;
+	}
 	&:before{
 		content: '';
 		position: absolute;
@@ -19,9 +22,9 @@
 	.cart-wrapper{
 		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 0 50px 103px;
+		padding: 0 0 76px 103px;
 		@include media('<desktop'){
-			padding-left: 0;
+			padding: 0;
 		}
 	}
 	.holder{
@@ -36,14 +39,15 @@
 	.list{
 		@extend %listreset;
 		>li{
-			padding: 33px 19px 37px 27px;
-			margin: 0;
+			padding: 33px 23px 33px 27px;
+			margin-bottom: -27px;
 			border-bottom: 1px solid #ececec;
 			display: flex;
 			align-items: center;
 			position: relative;
 			@include media('<tablet'){
 				display: block;
+				margin-bottom: 0;
 			}
 		}
 		.image{
@@ -79,8 +83,8 @@
 			}
 		}
 		.text{
-			padding-left: 38px;
-			width: 46%;
+			padding: 11px 0 0 38px;
+			width: 54.2%;
 			font: 16px/1.56 'Work Sans', sans-serif;
 			border-right:1px solid rgba(43, 46, 64, 0.06);
 			@include media('<desktop'){
@@ -93,7 +97,7 @@
 				width: auto;
 			}
 			h2{
-				margin: 0;
+				margin: 0 0 10px;
 				text-align: left;
 				color: #191919;
 				font-size: 20px;
@@ -106,7 +110,7 @@
 		}
 		.price{
 			padding-left: 46px;
-			width: 40%;
+			width: 32%;
 			font: 16px/1.56 'Work Sans', sans-serif;
 			@include media('<desktop'){
 				width: 300px;
@@ -120,43 +124,46 @@
 				vertical-align: middle;
 				text-align: center;
 			}
-			button{
-				opacity: 1;
-				transition: opacity 0.5s ease;
-				&:hover{
-					opacity: 0.8;
-				}
+		}
+		button{
+			opacity: 1;
+			transition: opacity 0.5s ease;
+			&:hover{
+				opacity: 0.8;
 			}
-			.btn{
-				padding: 0;
-				width: 39px;
-				height: 39px;
-				background: none;
-				border: 1px solid #dcdcdc;
+			&[disabled]{
+				opacity: 0.4;
 			}
-			.delete{
-				position: absolute;
-				top: 30px;
-				right: 14px;
-				padding: 0;
-				width: 20px;
-				height: 23px;
-				background: none;
-				border: none;
-			}
-			.qty{
-				width: 60px;
-				color: #7d7d7d;
-			}
-			.item-price{
-				font: bold 20px/2 'Avalon', sans-serif;
-				color: #000;
-				float: right;
-			}
+		}
+		.btn{
+			padding: 0;
+			width: 39px;
+			height: 39px;
+			background: none;
+			border: 1px solid #dcdcdc;
+		}
+		.delete{
+			position: absolute;
+			top: 56px;
+			right: 25px;
+			padding: 0;
+			width: 20px;
+			height: 23px;
+			background: none;
+			border: none;
+		}
+		.qty{
+			width: 60px;
+			color: #7d7d7d;
+		}
+		.item-price{
+			font: bold 20px/2 'Avalon', sans-serif;
+			color: #000;
+			float: right;
 		}
 	}
 	.total-price{
-		padding: 46px 0 60px;
+		padding: 82px 0 56px;
 		font: bold 35px/1.14 'Avalon', sans-serif;
 		text-align: right;
 		color: #000;
