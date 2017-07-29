@@ -21,6 +21,12 @@
 		color: #fff;
 		position: relative;
 		padding: 220px 10px 250px;
+		@include media('<desktop'){
+			padding: 100px 10px;
+		}
+		@include media('<tablet'){
+			padding: 10px;
+		}
 		p{
 			margin: 0;
 		}

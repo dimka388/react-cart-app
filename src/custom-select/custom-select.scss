@@ -1,0 +1,61 @@
+@import '../scss/main';
+
+
+.custom-select{
+	position: relative;
+	z-index: 1;
+	font: 14px/1.64 'Work Sans', sans-serif;
+	color: #4d4d4d;
+	max-width: 242px;
+	@include media('<desktop'){
+		max-width: none;
+	}
+	.opener{
+		display: block;
+		position: relative;
+		padding: 14px 20px;
+		border: 1px solid #dcdcdc;
+		&:after{
+			content: '';
+			border-style: solid;
+			border-width: 12px 8px 0;
+			border-color: #262626 transparent transparent transparent;
+			transform: translate(-50%, -50%) rotate(0deg);
+			transform-origin: 50% 50%;
+			transition: transform .5s ease;
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			opacity: 0.56;
+		}
+	}
+	.drop{
+		@extend %listreset;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: #fff;
+		border: 1px solid #dcdcdc;
+		border-width: 0 1px 1px;
+		display: none;
+		li{
+			padding: 14px 20px;
+			&.active,
+			&:hover{
+				background-color: #dcdcdc;
+			}
+		}
+	}
+	&.active{
+		z-index: 2;
+		.opener{
+			&:after{
+				transform: translate(-50%, -50%) rotate(180deg);
+			}
+		}
+		.drop{
+			display: block;
+		}
+	}
+}
